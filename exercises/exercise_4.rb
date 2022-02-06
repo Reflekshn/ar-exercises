@@ -13,7 +13,11 @@ puts "----------"
 @store3 = Store.create(name: "Yaletown", annual_revenue: 430000, mens_apparel: true, womens_apparel: true)
 
 @mens_stores = Store.where(mens_apparel: true)
-@mens_stores.each { |s| puts "Name: #{s.name} - Annual Revnue: #{s.annual_revenue}"}
+@mens_stores.each do |s|
+  puts "Name: #{s.name} - Annual Revnue: #{s.annual_revenue}"
+end
 
-@womens_stores = Store.where("womens_apparel = ? AND annual_revenue < ?", true, 1000000)
-@womens_stores.each { |s| puts "Name: #{s.name} - Annual Revnue: #{s.annual_revenue}"}
+@womens_stores = Store.where("womens_apparel = ? and annual_revenue < ?", true, 1000000)
+@womens_stores.each do |s|
+  puts "Name: #{s.name} - Annual Revnue: #{s.annual_revenue}"
+end
